@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-teams"
+version = "0.1.1"
+description = "MCP server for orchestrating agent teams"
+requires-python = ">=3.12"
+license = "MIT"
+dependencies = ["fastmcp==3.0.0b1", "filelock==3.16"]
+
+[dependency-groups]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+
+[project.scripts]
+agent-teams = "agent_teams.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agent_teams"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.pyright]
+reportCallIssue = false
