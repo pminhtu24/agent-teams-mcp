@@ -65,7 +65,6 @@ MemberUnion = Annotated[
 
 class TeamConfig(BaseModel):
     model_config = {"populate_by_name": True}
-
     name: str
     description: str = ""
     created_at: int = Field(alias="createdAt")

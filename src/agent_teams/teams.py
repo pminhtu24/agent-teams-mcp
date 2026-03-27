@@ -107,10 +107,6 @@ def _replace_with_retry(
             os.replace(src, dst)
             return
         except PermissionError:
-            # NOTE: On Windows, os.replace raises PermissionError when
-            # antivirus or another process holds the target file handle briefly.
-            # On Unix this indicates a real permissions issue, so we only retry
-            # on Windows.
             if sys.platform != "win32" or attempt == retries - 1:
                 raise
             time.sleep(base_delay * (2**attempt))

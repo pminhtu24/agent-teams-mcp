@@ -420,7 +420,7 @@ def spawn_teammate_tool(
     model: str = "sonnet",
     subagent_type: str = "general-purpose",
     plan_mode_required: bool = False,
-    backend_type: Literal["claude", "opencode"] = "claude",
+    backend_type: Literal["claude", "opencode"] = "opencode",
 ) -> dict:
     """Spawn a new teammate in tmux. Description is dynamically updated
     at startup with available backends and models."""
@@ -996,7 +996,7 @@ async def check_teammate(
             except (FileNotFoundError, json.JSONDecodeError):
                 pending_count = 0
             text = (
-                f"[claude-teams reminder] {t_agent}: "
+                f"[agent-teams reminder] {t_agent}: "
                 f"{pending_count} unread message(s) for team-lead. "
                 f"Call check_teammate to review."
             )
