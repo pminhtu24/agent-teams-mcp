@@ -81,7 +81,7 @@ uv run python -m agent_teams.server
         "agent-teams"
       ],
       "env": {
-        "CLAUDE_TEAMS_BACKENDS": "opencode",
+        "AGENT_TEAMS_BACKENDS": "opencode",
         "OPENCODE_SERVER_URL": "http://localhost:4096"
       }
     }
