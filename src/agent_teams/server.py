@@ -38,16 +38,6 @@ KNOWN_CLIENTS: dict[str, str] = {
     "claude": "claude",
     "opencode": "opencode",
 }
-
-# NOTE: Mutated by both app_lifespan and HarnessDetectionMiddleware.
-# Safe under stdio (single session). Racy under SSE/streamable HTTP.
-#
-# more context:
-#   app_lifespan yields _lifespan_state
-#     -> _lifespan_manager stores as self._lifespan_result (same ref)
-#     -> _lifespan_proxy yields self._lifespan_result
-#     -> ctx.lifespan_context in tool handlers returns it
-#   All references point to the same dict. Middleware mutations propagate.
 _lifespan_state: dict[str, Any] = {}
 _spawn_tool: Any = None
 _check_teammate_tool: Any = None
