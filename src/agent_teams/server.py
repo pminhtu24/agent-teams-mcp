@@ -221,7 +221,7 @@ async def app_lifespan(server):
                 "Failed to fetch opencode agents from %s", opencode_server_url
             )
 
-    enabled_backends = _parse_backends_env(os.environ.get("AGENT_TEAMS_BACKENDS", ""))
+    enabled_backends = _parse_backends_env(os.environ.get("AGENT_TEAMS_BACKENDS", "opencode"))
     if "opencode" in enabled_backends and not opencode_server_url:
         enabled_backends.remove("opencode")
 
