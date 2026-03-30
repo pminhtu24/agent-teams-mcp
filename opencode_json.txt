@@ -1,0 +1,43 @@
+  # For fetch from repo
+  {
+    "mcp": {
+      "agent-teams": {
+        "type": "local",
+        "command": [
+          "uvx",
+          "--from",
+          "git+https://github.com/pminhtu24/agent-teams-mcp",
+          "agent-teams"
+        ],
+        "enabled": true,
+        "environment": {
+          "AGENT_TEAMS_BACKENDS": "opencode",
+          "OPENCODE_SERVER_URL": "http://localhost:4096"
+        }
+      }
+    }
+  }
+
+# In local repo
+{
+  "mcp": {                                                                      
+    "agent-teams": {                                                            
+      "type": "local",                                                          
+      "command": [                                                              
+        "uv",                                                                   
+        "--directory",                                                          
+        "/home/tupham/Documents/Development/agent-teams-mcp",                   
+        "run",                                                                  
+        "python",                                                               
+        "-m",                                                                   
+        "agent_teams.server"                                                    
+      ],                                                                        
+      "enabled": true,                                                          
+      "environment": {                                                          
+        "AGENT_TEAMS_BACKENDS": "opencode",                                     
+        "OPENCODE_SERVER_URL": "http://localhost:4096",                         
+        "PATH": "/home/tupham/.bun/bin:/home/tupham/bin:/home/tupham/.local/bin:/home/tupham/.nvm/versions/node/v24.13.0/bin:/usr/local/cuda-12.6/bin:/home/tupham/anaconda3/bin:/home/tupham/anaconda3/condabin:/home/tupham/.cargo/bin:/home/tupham/.local/bin:/home/tupham/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"             
+      }                                                                         
+    }                                                                           
+  }                                                                             
+}     
